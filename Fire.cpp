@@ -93,15 +93,15 @@ void Fire::render(){
   }*/
 
   for(int i = 0; i < LED_COUNT; i++){
-    led[i] = CRGB(255, 0, 0);
+    leds[i] = CRGB(255, 0, 0);
     FastLED.show();
     FastLED.delay(166);
     
-    led[i] = CRGB(0, 255, 0);
+    leds[i] = CRGB(0, 255, 0);
     FastLED.show();
     FastLED.delay(166);
 
-    led[i] = CRGB(0, 0, 255);
+    leds[i] = CRGB(0, 0, 255);
     FastLED.show();
     FastLED.delay(166);
   }

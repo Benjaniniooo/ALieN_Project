@@ -38,7 +38,7 @@ void Fire::setup(){
   randomSeed(random(100));
 
   FastLED.addLeds<WS2812B, LED_PIN, GRB>(leds, LED_COUNT).setCorrection(TypicalLEDStrip);
-  FastLED.setBrightness(200);
+  FastLED.setBrightness(180);
 }
 
 void Fire::setSource(int strength){

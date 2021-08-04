@@ -9,8 +9,8 @@ Revision: 16
 #include <avr/pgmspace.h>
 #include <FastLED.h>
 
-#define WIDTH 20
-#define HEIGHT 30
+#define WIDTH 16
+#define HEIGHT 16
 
 #define LED_PIN 7
 

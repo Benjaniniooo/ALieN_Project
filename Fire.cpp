@@ -37,7 +37,7 @@ void Fire::setup(){
   randomSeed(random(20));
   randomSeed(random(100));
 
-  FastLED.addLeds<WS2812B, LED_PIN, GRB>(leds, LED_COUNT).setCorrection(TypicalLEDStrip);
+  FastLED.addLeds<WS2812B, LED_PIN, RGB>(leds, LED_COUNT).setCorrection(TypicalLEDStrip);
   FastLED.setBrightness(180);
 }
 
@@ -91,4 +91,5 @@ void Fire::render(){
     }
   }
   FastLED.show();
+  FastLED.delay(1000);
 }

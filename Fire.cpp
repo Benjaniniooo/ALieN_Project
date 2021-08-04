@@ -72,7 +72,7 @@ void Fire::update(){
 }
 
 void Fire::render(){
-  for(int i = 0; i < WIDTH / 2; i++){
+  /*for(int i = 0; i < WIDTH / 2; i++){
     for(int j = 0; j < HEIGHT / 2; j++){
       int avg = fireValues[i * 2][j * 2];
       //int avg = round((fireValues[i * 2][j * 2] + fireValues[i * 2 + 1][j * 2] + fireValues[i * 2][j * 2 + 1] + fireValues[i * 2 + 1][j * 2 + 1]) / 4);
@@ -90,6 +90,20 @@ void Fire::render(){
       Serial.print((byte) pgm_read_byte(&(Fire::palette[avg][2])));
       Serial.println("}");
     }
+  }*/
+
+  for(int i = 0; i < LED_COUNT; i++){
+    led[i] = CRGB(255, 0, 0);
+    FastLED.show();
+    FastLED.delay(166);
+    
+    led[i] = CRGB(0, 255, 0);
+    FastLED.show();
+    FastLED.delay(166);
+
+    led[i] = CRGB(0, 0, 255);
+    FastLED.show();
+    FastLED.delay(166);
   }
   FastLED.show();
   FastLED.delay(1000);

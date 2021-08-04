@@ -37,8 +37,9 @@ void Fire::setup(){
   randomSeed(random(20));
   randomSeed(random(100));
 
-  FastLED.addLeds<WS2812B, LED_PIN, RGB>(leds, LED_COUNT).setCorrection(TypicalLEDStrip);
-  FastLED.setBrightness(180);
+  delay(3000);
+  FastLED.addLeds<WS2812B, LED_PIN, GRB>(leds, LED_COUNT).setCorrection(TypicalLEDStrip);
+  FastLED.setBrightness(200);
 }
 
 void Fire::setSource(int strength){
@@ -75,10 +76,10 @@ void Fire::render(){
     for(int j = 0; j < HEIGHT / 2; j++){
       int avg = fireValues[i * 2][j * 2];
       //int avg = round((fireValues[i * 2][j * 2] + fireValues[i * 2 + 1][j * 2] + fireValues[i * 2][j * 2 + 1] + fireValues[i * 2 + 1][j * 2 + 1]) / 4);
+
+      CRGB color = CRGB((byte) pgm_read_byte(&(Fire::palette[avg][0])), (byte) pgm_read_byte(&(Fire::palette[avg][1])), (byte) pgm_read_byte(&(Fire::palette[avg][2])));
         
-      leds[i * (HEIGHT / 2) + j].r = (byte) pgm_read_byte(&(Fire::palette[avg][0]));
-      leds[i * (HEIGHT / 2) + j].g = (byte) pgm_read_byte(&(Fire::palette[avg][1]));
-      leds[i * (HEIGHT / 2) + j].b = (byte) pgm_read_byte(&(Fire::palette[avg][2]));
+      leds[i * (HEIGHT / 2) + j] = color;
 
       Serial.print((i * (HEIGHT / 2) + j));
       Serial.print(": {");

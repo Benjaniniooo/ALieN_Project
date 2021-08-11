@@ -72,7 +72,7 @@ void updateNeck(){
 
 void updateJaw(){
   if(digitalRead(ButtonPin) == LOW){
-    if(jawPosition <= 180.f - 2.75f){
+    if(jawPosition <= 105.f - 2.75f){
       jawPosition += 2.75f;
     }
   }else{

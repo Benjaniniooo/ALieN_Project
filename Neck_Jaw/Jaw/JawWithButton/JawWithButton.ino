@@ -35,5 +35,4 @@ void loop() {
   }
   
   jawServo.write(jawPosition);
-  delay(50);
 }
